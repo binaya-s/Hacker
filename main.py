@@ -1,3 +1,5 @@
+# This is main.py which is to be run
+
 import torch
 from torch import optim
 from torch.autograd import Variable
