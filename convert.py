@@ -16,8 +16,8 @@ from scipy.io.wavfile import write
 import h5py 
 import os 
 import soundfile as sf
-#import pysptk
-#import pyworld as pw
+import pysptk
+import pyworld as pw
 
 def sp2wav(sp): 
     #exp_sp = np.exp(sp)
