@@ -1,5 +1,3 @@
-# This is main.py which is to be run
-# Hello mumbai
 
 import torch
 from torch import optim
