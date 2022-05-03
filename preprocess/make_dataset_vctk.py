@@ -50,6 +50,7 @@ if __name__ == '__main__':
             print('processing {}'.format(speaker_id))
             train_size = int(len(filenames) * proportion)
             for i, filename in enumerate(filenames):
+                # \\ for pycharm, '/' for colab
                 sub_filename = filename.strip().split('/')[-1]
                 # format: p{speaker}_{sid}.wav
                 speaker_id, utt_id = re.match(r'p(\d+)_(\d+)\.wav', sub_filename).groups()
