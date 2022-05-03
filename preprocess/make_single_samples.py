@@ -1,3 +1,7 @@
+import os
+
+os.system("pip install h5py")
+
 import sys
 import h5py
 import numpy as np
