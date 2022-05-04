@@ -38,6 +38,7 @@ if __name__ == '__main__':
 
         for filename in filenames:
             # divide into groups
+            # \\ for pycharm, '/' for colab
             sub_filename = filename.strip().split('/')[-1]
             # format: p{speaker}_{sid}.wav
             print(sub_filename)
