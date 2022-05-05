@@ -1,10 +1,10 @@
 import os
 
-data_root_dir = r"VCTK-Corpus"
+data_root_dir = r"VCTK-Corpus_mini"
 h5py_path = r"norm_vctk.h5py"
 train_proportion = 0.9
 index_path = r"index_path.json"
-n_samples = 500000
+n_samples = 50000
 seg_len = 128
 speaker_used_path = r"speaker-used.txt"
 
