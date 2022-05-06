@@ -1,61 +1,32 @@
 # Multi-target Voice Conversion without Parallel Data by Adversarially Learning Disentangled Audio Representations
-This is the official implementation of the paper [Multi-target Voice Conversion without Parallel Data by Adversarially Learning Disentangled Audio Representations](https://arxiv.org/abs/1804.02812).
-You can find the demo webpage [here](https://jjery2243542.github.io/voice_conversion_demo/), and the pretrained model [here](http://speech.ee.ntu.edu.tw/~jjery2243542/resource/model/is18/model.pkl).
 
-# Dependency
+## IIT Bombay CS-753 Automatic Speech Recognition : Hacker Implementation
+
+### Team Name : Overload.ai
+### Team Members : 
+- Nihar Mahesh Gupte (213070002)
+- Araveeti Sai Pavan (213070007)
+- Binaya Kumar Sahoo (213070009)
+
+This is the implementation of the paper on a smaller subset of the dataset : VCTK Corpus, with 8 speakers, compared to 
+the original paper implementation at [Original Github Link](https://github.com/jjery2243542/voice_conversion).
+
+The github link mentioned here also uses the content of the tacotron model implementation by the same author as a part of
+preprocessing steps.
+
+# Dependencies
 - python 3.6+
 - pytorch 0.4.0
 - h5py 2.8
 - tensorboardX
-We also use some preprocess script from [Kyubyong/tacotron](https://github.com/Kyubyong/tacotron).
 
-# Preprocess
-Our model is trained on [CSTR VCTK Corpus](https://homepages.inf.ed.ac.uk/jyamagis/page3/page58/page58.html).
+To run the code, in order to take care of the computational power, we are using Google Colab as the shell, and running 
+all the '.py' files in form of commands on Google Colaboratory notebook. The link for the same is provided [here](https://colab.research.google.com/drive/12IX6mbH6nsMVlVpfmQBBK53H0tu9bCad?usp=sharing).
+The instructions are mentioned in the colab notebook itself to run the code.
 
-### Feature extraction
-We use the code from [Kyubyong/tacotron](https://github.com/Kyubyong/tacotron) to extract feature. The default paprameters can be found at ```preprocess/tacotron/norm_utils.py```.
-
-The configuration for preprocess is at ```preprocess/vctk.config```, where: 
-- **data_root_dir**: the path of VCTK Corpus (VCTK-Corpus).
-- **h5py_path**: the path to store extracted features.
-- **index_path**: the path to store sampled segments.
-- **traini_proportion**: the proportion of training utterances. Default: 0.9.
-- **n_samples**: the number of sampled samples. Default: 500000.
-- **seg_len**: the length of sampled segments. Default: 128.
-- **speaker_used_path**: the path of used speaker list. Our speakers set used in the paper is [here](http://speech.ee.ntu.edu.tw/~jjery2243542/resource/model/is18/en_speaker_used.txt).
-
-Once you edited the config file, you can run ```preprocess.sh``` to preprocess the dataset.
-
-# Training
-You can start training by running ```main.py```. The arguments are listed below.
-- **--load_model**: whether to load the model from checkpoint.
-- **-flag**: flag of this training episode for tensorboard. Default: train.
-- **-hps_path**: the path of hyper-parameters set. You can find the default setting at ```vctk.json```.
-- **--load_model_path**: If **--load_model** is on, it will load the model parameters from this path.
-- **-dataset_path**: the path of processed features (.h5).
-- **-index_path**: the path of sampled segment indexes (.json).
-- **-output_model_path**: the path to store trained model. 
-
-# Testing
-You can inference by running ```python3 test.py```. The arguments are listed below.
-- **-hps**: the path of hyper-parameter set. Default: vctk.json
-- **-m**: the path of model checkpoint to load.
-- **-s**: the path of source .wav file.
-- **-t**: the index of target speaker id (integer). Same order as the speaker list (```en_speaker_used.txt```).
-- **-o**: output .wav path.
-- **-sr**: sample rate of the output .wav file. Default: 16000.
-- **--use_gen**: if the flag is on, inference will use generator. Default: True.
-
-# Reference
-Please cite our paper if you find this repository useful.
-```
-@article{chou2018multi,
-  title={Multi-target voice conversion without parallel data by adversarially learning disentangled audio representations},
-  author={Chou, Ju-chieh and Yeh, Cheng-chieh and Lee, Hung-yi and Lee, Lin-shan},
-  journal={arXiv preprint arXiv:1804.02812},
-  year={2018}
-}
-```
-
-# Contact
-If you have any question about the paper or the code, feel free to email me at [jjery2243542@gmail.com](jjery2243542@gmail.com).
+# Changes to Original Work
+- The original dataset contains 109 speakers with 400 wav files each, so we took a smaller subset of the original dataset 
+with 8 speakers each. 
+- We used 50,000 samples (segments of 128 sample length) in place of 5,00,000 samples used in original work.
+- In order to have an estimate, we used the pretrained model provided by the authors at the original github link and then 
+fine-tuned the model accordingly.
