@@ -24,6 +24,9 @@ To run the code, in order to take care of the computational power, we are using 
 all the '.py' files in form of commands on Google Colaboratory notebook. The link for the same is provided [here](https://colab.research.google.com/drive/12IX6mbH6nsMVlVpfmQBBK53H0tu9bCad?usp=sharing).
 The instructions are mentioned in the colab notebook itself to run the code.
 
+# Dataset Link
+The link to download the subset of the dataset is [here](https://drive.google.com/uc?id=1GOM281Ah4WTjBsO2eJpJ--TTqExgjDc1&export=download) 
+
 # Changes to Original Work
 - The original dataset contains 109 speakers with 400 wav files each, so we took a smaller subset of the original dataset 
 with 8 speakers each. 
